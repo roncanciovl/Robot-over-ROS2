@@ -26,7 +26,7 @@ Ref: https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Creating-A
 cd ~
 ```
 
-4. Go to src folder in your workspace
+4. Go to src folder in your workspace. Change my_name_ws accordingly
 
 ```shell script
 cd my_name_ws/src/
@@ -54,6 +54,9 @@ sudo rosdep init
 ```shell script
 rosdep update
 ```
+
+5. Open VSCode, got to the menu and select file, an then select open folder. This show our workspace in the VScode explorer
+
 
 
 ## Source Control Recommendations
