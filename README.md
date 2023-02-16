@@ -82,5 +82,4 @@ GOLFITO
 
 AMIGO BLESS CHIMBA
 Paso por ti a las 2 ve arreglandote ;)
-
-Feliz cumpleaños willito :)
+De medallo vea pues
