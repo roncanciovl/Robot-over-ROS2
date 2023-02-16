@@ -87,3 +87,6 @@ source /opt/ros/foxy/setup.bash
 
 
 BUENOS DIAS :)
+ADIOS 
+hola willy
+HOla reyes
