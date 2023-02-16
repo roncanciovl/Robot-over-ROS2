@@ -75,7 +75,3 @@ HOla reyes
 
 feliz cumpleaños willy
 GOLFITO
-
-
-
-HOLA amigo BLESS chimba
