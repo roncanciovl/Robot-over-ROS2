@@ -85,3 +85,8 @@ Paso por ti a las 2 ve arreglandote ;)
 De medallo vea pues
 
 Feliz cumpleaños willito :)
+Que rompa la piñata no
+que la rompa raulito no
+que la rompa carlitos no
+que la rompa WIllyto 
+SIUUU
