@@ -21,7 +21,7 @@ find_package(ament_cmake_python REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(std_msgs REQUIRED)
 
-ament_python_install_package(scripts/)
+ament_python_install_package(scripts)
 
 install(PROGRAMS
   scripts/publisher_member_function.py
