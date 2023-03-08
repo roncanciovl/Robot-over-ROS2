@@ -1,35 +1,39 @@
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import Int32
 
-class MyNode(Node):
-    def _init_(self):
-        super()._init_('my_node')
+from std_msgs.msg import String
 
-        # Publicar en el topic "rpm"
-        self.publisher = self.create_publisher(
-            Int32,
-            'rpm',
-            10
-        )
 
-        # Publicar un número aleatorio en el topic "rpm" cada segundo
-        self.timer = self.create_timer(1, self.timer_callback)
+class RPM(Node):
+
+    def __init__(self):
+        super().__init__('rpm')
+        self.publisher_ = self.create_publisher(String, 'topic', 10)
+        timer_period = 0.5  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+        self.i = 0
 
     def timer_callback(self):
-        # Generar un número aleatorio entre 0 y 100
-        number = 5
+        msg = String()
+        msg.data = 'Hello World: %d' % self.i
+        self.publisher_.publish(msg)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
+        self.i += 1
 
-        # Publicar el número en el topic "rpm"
-        msg = Int32()
-        msg.data = number
-        self.publisher.publish(msg)
 
 def main(args=None):
     rclpy.init(args=args)
-    node = MyNode()
-    rclpy.spin(node)
+
+    rpm = RPM()
+
+    rclpy.spin(rpm)
+
+    # Destroy the node explicitly
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    rpm.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
