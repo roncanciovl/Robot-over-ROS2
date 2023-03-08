@@ -9,7 +9,7 @@ from std_msgs.msg import String
 class MinimalSubscriber(Node):
 
     def __init__(self):
-        super().__init__('rpm')
+        super().__init__('lineal_speed')
         self.subscription = self.create_subscription(
             String,
             'topic',
