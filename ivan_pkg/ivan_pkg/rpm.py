@@ -18,8 +18,8 @@ class RPM(Node):
         msg = Float32()
         msg.data = 1
         self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
-        self.i += 1
+        #self.get_logger().info('Publishing: "%s"' % msg.data)
+        #self.i += 1
 
 
 def main(args=None):
