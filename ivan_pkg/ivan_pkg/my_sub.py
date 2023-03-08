@@ -9,10 +9,10 @@ from std_msgs.msg import String
 class MinimalSubscriber(Node):
 
     def __init__(self):
-        super().__init__('lineal_speed')
+        super().__init__('minimal_subscriber')
         self.subscription = self.create_subscription(
             String,
-            'topic',
+            'lineal_speed',
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
@@ -24,14 +24,14 @@ class MinimalSubscriber(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    lineal_speed = MinimalSubscriber()
+    minimal_subscriber = MinimalSubscriber()
 
-    rclpy.spin(lineal_speed)
+    rclpy.spin(minimal_subscriber)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    lineal_speed.destroy_node()
+    minimal_subscriber.destroy_node()
     rclpy.shutdown()
 
 
