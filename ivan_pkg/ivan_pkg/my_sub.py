@@ -24,14 +24,14 @@ class MinimalSubscriber(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    minimal_subscriber = MinimalSubscriber()
+    lineal_speed = MinimalSubscriber()
 
-    rclpy.spin(minimal_subscriber)
+    rclpy.spin(lineal_speed)
 
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    minimal_subscriber.destroy_node()
+    lineal_speed.destroy_node()
     rclpy.shutdown()
 
 
