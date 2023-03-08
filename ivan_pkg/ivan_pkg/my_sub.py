@@ -9,7 +9,7 @@ from std_msgs.msg import String
 class MinimalSubscriber(Node):
 
     def __init__(self):
-        super().__init__('')
+        super().__init__('rpm')
         self.subscription = self.create_subscription(
             String,
             'topic',
