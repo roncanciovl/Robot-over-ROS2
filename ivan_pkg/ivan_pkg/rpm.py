@@ -19,7 +19,7 @@ class RPM(Node):
         msg.data = 35.2
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
-        self.i += 1
+        #self.i += 1
 
 
 def main(args=None):
