@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
                 'talker = ivan_pkg.my_pub:main',
                 'listener = ivan_pkg.my_sub:main',
+                'rpm = ivan_pkg.rpm:main',
         ],
 },
 
