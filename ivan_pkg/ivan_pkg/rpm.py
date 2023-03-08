@@ -16,7 +16,10 @@ class RPM(Node):
 
     def timer_callback(self):
         msg = Float32()
+        msg.data = 1
         self.publisher_.publish(msg)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
+        self.i += 1
 
 
 def main(args=None):
