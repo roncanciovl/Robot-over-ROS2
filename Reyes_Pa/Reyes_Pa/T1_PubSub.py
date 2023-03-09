@@ -5,7 +5,9 @@ from std_msgs.msg import String
 class MyNode(Node):
 
     def __init__(self):
-        super().__init__('CR_T1_PubSub')
+        super().__init__('willypoder')
+        self.declare_parameter('Radio', 0.10)
+        sub_topic = self.get_parameter('Radio').value
         self.publisher_ = self.create_publisher(String, 'lineal_speed', 10)
         self.subscription = self.create_subscription(
             String,
@@ -16,7 +18,9 @@ class MyNode(Node):
 
     def listener_callback(self, msg):
         #self.get_logger().info('I heard: "%s"' % msg.data)
-        numin=(float(msg.data)/60)*2*3.141516*0.03
+        Radio = self.get_parameter('Radio').value
+
+        numin=(float(msg.data)/60)*2*3.141516*Radio
         print(numin)
         msg.data=str(numin)
         self.publisher_.publish(msg)
