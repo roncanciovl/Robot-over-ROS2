@@ -10,7 +10,7 @@ def generate_launch_description():
             output='screen',
             emulate_tty=True,
             parameters=[
-                {'my_parameter': 'earth'}
+                {'radius': 0.5}
             ]
-        )
+        )      
     ])
