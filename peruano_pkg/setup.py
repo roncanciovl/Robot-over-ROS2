@@ -20,7 +20,6 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'jackson = peruano_pkg.jackson:main'
             'talker = peruano_pkg.jack_pub:main'
             'listener = peruano_pkg.jack_sub:main'
         ],
