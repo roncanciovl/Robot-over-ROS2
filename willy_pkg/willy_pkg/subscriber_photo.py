@@ -9,7 +9,7 @@ class ImagePublisher(Node):
         super().__init__('image_publisher')
 
         # Create the publisher to publish images
-        self.publisher_ = self.create_publisher(Image, 'ALO', 1)
+        self.publisher_ = self.create_publisher(Image, 'ALO', 10)
 
         # Read the image file
         img = cv2.imread('/home/willy/Documentos/jh.jpg')
