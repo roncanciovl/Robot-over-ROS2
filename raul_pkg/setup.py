@@ -22,6 +22,8 @@ setup(
         'console_scripts': [
                 'talker = raul_pkg.pub_raul:main',
                 'listener = raul_pkg.sub_raul:main',
+                'rpm2ls = raul_pkg.rpm2ls:main',
+                'rpmpub = raul_pkg.pub_rpm:main'
         ],
     },
 )
