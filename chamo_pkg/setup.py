@@ -21,7 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
                 'talker = chamo_pkg.my_pub:main',
-                'listener = chamo_pkg.my_pub:main',
+                'listener = chamo_pkg.my_sub:main',
         ],
     },
 )
