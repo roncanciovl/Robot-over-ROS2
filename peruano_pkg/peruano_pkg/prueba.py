@@ -5,7 +5,7 @@ from std_msgs.msg import String
 class MyNode(Node):
 
     def _init_(self):
-        super()._init_('jackson')
+        super().__init__('my_node')
         self.publisher_ = self.create_publisher(String, 'my_topic', 10)
         self.subscription_ = self.create_subscription(String, 'my_topic', self.callback, 10)
         self.subscription_
