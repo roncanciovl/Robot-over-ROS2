@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'talker = peruano_pkg.jack_pub:main',
             'listener = peruano_pkg.jack_sub:main',
+            'jack = peruano_pkg.prueba:main',
         ],
     },
 )
