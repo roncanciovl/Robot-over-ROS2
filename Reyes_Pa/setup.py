@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'talker = Reyes_Pa.Fino:main',
-
+            'hola = Reyes_Pa.Prueba:main',
         ],
+        
     },
 )
