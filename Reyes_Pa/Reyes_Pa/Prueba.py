@@ -9,7 +9,7 @@ class MiNodo(Node):
 
     def __init__(self):
         super().__init__('ReyesN')
-        self.subscription = self.create_subscription(Image, 'ALO', self.imagen_callback, 1)
+        self.subscription = self.create_subscription(Image, 'ALO', self.imagen_callback, 10)
         self.cv_bridge = CvBridge()
 
     def imagen_callback(self, msg):
