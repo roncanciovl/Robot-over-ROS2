@@ -1,6 +1,7 @@
 #!usr/bin/env python 3
 import rclpy
 from rclpy.node import Node
+import math
 
 from std_msgs.msg import String
 
@@ -8,7 +9,7 @@ from std_msgs.msg import String
 class MinimalSubscriber(Node):
 
     def __init__(self):
-        super().__init__('willy poder')
+        super().__init__('lineal_speed')
         self.subscription = self.create_subscription(
             String,
             'topic',
@@ -18,6 +19,8 @@ class MinimalSubscriber(Node):
 
     def listener_callback(self, msg):
         self.get_logger().info('I heard: "%s"' % msg.data)
+
+
 
 
 def main(args=None):
