@@ -21,6 +21,9 @@ setup(
     entry_points={
         'console_scripts': [
             'talker = Reyes_Pa.Fino:main',
+            'RPM = Reyes_Pa.T1_PubRPM:main',
+            'SupPub = Reyes_Pa.T1_PubSub:main',
+            'LinSpeed = Reyes_Pa.T1_SubLinSpeed:main',
             'hola = Reyes_Pa.Prueba:main',
         ],
         
