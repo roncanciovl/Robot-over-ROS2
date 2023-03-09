@@ -23,6 +23,8 @@ setup(
                 'talker = ivan_pkg.my_pub:main',
                 'listener = ivan_pkg.my_sub:main',
                 'rpm = ivan_pkg.rpm:main',
+                'my_node = ivan_pkg.my_node:main',
+                
         ],
 },
 
