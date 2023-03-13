@@ -1,15 +1,17 @@
 from setuptools import setup
 #######
-from glob import glob
 import os
+from glob import glob
+from setuptools import setup
+from setuptools import find_packages
 ##########
 
 
 package_name = 'Reyes_Pa'
 #############
 package_files = [
-    'launch/Prueba.launch.py'
-    'Union_launch.py'
+    'launch/Prueba.launch.py',
+    'launch/Union.launch.py',
 ]
 ####
 setup(
@@ -22,9 +24,14 @@ setup(
         ('share/' + package_name, ['package.xml']),
         #COLOQUE NUEVO 
         #('share/' + package_name, package_files),
-        #('share/' + package_name + '/launch', package_files)
+        #('share/' + package_name + '/launch', package_files),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.py')),
-        #######
+        #######nuevo_robot
+        (os.path.join('share', package_name, 'urdf'), glob('urdf/*')),
+        (os.path.join('share', package_name, 'meshes'), glob('meshes/*')),
+        (os.path.join('share', package_name, 'worlds'), glob('worlds/*')),
+
+
     
     ],
     install_requires=['setuptools'],
@@ -41,6 +48,9 @@ setup(
             'SupPub = Reyes_Pa.T1_PubSub:main',
             'LinSpeed = Reyes_Pa.T1_SubLinSpeed:main',
             'hola = Reyes_Pa.Prueba:main',
+            'P1E = Reyes_Pa.P1_EnvFoto:main',
+            'P1R = Reyes_Pa.P1_RecFoto:main',
+            'P2E = Reyes_Pa.P2_EnvFoto:main',
         ],
         
     },

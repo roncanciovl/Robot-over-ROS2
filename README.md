@@ -72,3 +72,13 @@ BUENOS DIAS :)
 ADIOS 
 hola willy
 HOla reyes
+
+feliz cumpleaños willy
+GOLFITO
+Paso por ti a las 2 ve arreglandote ;)
+
+Feliz cumpleaños willito :)
+Buena willito kchon
+
+
+nn
