@@ -50,7 +50,7 @@ setup(
             'hola = Reyes_Pa.Prueba:main',
             'P1E = Reyes_Pa.P1_EnvFoto:main',
             'P1R = Reyes_Pa.P1_RecFoto:main',
-            'P2E = Reyes_Pa.P2_EnvFoto:main',
+            'F = Reyes_Pa.P2_EnvFoto:main',
         ],
         
     },

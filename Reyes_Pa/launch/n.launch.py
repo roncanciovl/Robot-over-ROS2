@@ -4,8 +4,8 @@ import launch_ros.substitutions
 
 def generate_launch_description():
     node1 = launch_ros.actions.Node(
-        package='P2E',
-        executable='',
+        package='Reyes_Pa',
+        executable='F',
         name='nodo1'
     )
     node2 = launch_ros.actions.Node(
