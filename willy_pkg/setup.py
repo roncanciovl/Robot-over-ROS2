@@ -25,7 +25,7 @@ setup(
         'console_scripts': [
                 'talker = willy_pkg.publisher_member_function:main',
                 'listener = willy_pkg.subscriber_member_function:main',
-                'willy = willy_pkg.lineal_speed:main',
+                'lineal_speed = willy_pkg.lineal_speed:main',
                 'jh = willy_pkg.subscriber_photo:main',
         ],
 },

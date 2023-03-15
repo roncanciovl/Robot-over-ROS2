@@ -5,8 +5,8 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package='willy_pkg',
-            executable='willypoder',
-            name='cam_param',
+            executable='lineal_speed',
+            name='Siuu',
             output='screen',
             emulate_tty=True,
             parameters=[
