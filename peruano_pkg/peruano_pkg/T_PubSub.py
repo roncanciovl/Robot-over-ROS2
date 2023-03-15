@@ -5,7 +5,7 @@ from std_msgs.msg import String
 class MyNode(Node):
 
     def _init_(self):
-        super()._init_('willypoder')
+        super()._init_('jackson')
         self.declare_parameter('Radio', 0.10)
         sub_topic = self.get_parameter('Radio').value
         self.publisher_ = self.create_publisher(String, 'lineal_speed', 10)
