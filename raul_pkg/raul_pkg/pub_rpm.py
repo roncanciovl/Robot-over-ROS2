@@ -3,19 +3,22 @@ from rclpy.node import Node
 
 from std_msgs.msg import String
 
+RPMS = 3
 
 class MinimalPublisher(Node):
 
     def __init__(self):
-        super().__init__('Nodo_Raul')
+        super().__init__('Nodo_RPM')
+        self.declare_parameter('rpms',RPMS)
         self.publisher_ = self.create_publisher(String, 'RPM', 10)
-        timer_period = 0.5  # seconds
+        timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.timer_callback)
         self.i = 0
 
     def timer_callback(self):
+        rpmenv = self.get_parameter('rpms').value
         msg = String()
-        msg.data = str(3)
+        msg.data = str(rpmenv)
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1
