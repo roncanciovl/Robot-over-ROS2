@@ -7,7 +7,7 @@ from std_msgs.msg import String
 class MinimalSubscriber(Node):
 
     def _init_(self):
-        super()._init_('T_LinSpeed')
+        super()._init_('minimal_subscriber')
         self.subscription = self.create_subscription(
             String,
             'lineal_speed',
@@ -22,8 +22,7 @@ class MinimalSubscriber(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    minimal_subscriber = MinimalSubscriber(node_name='linspeed')
-
+    minimal_subscriber = MinimalSubscriber()
     rclpy.spin(minimal_subscriber)
 
     # Destroy the node explicitly
