@@ -20,7 +20,7 @@ class ImageSubscriber(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = ImageSubscriber(node_name='precibir')
+    node = ImageSubscriber()
     rclpy.spin(node)
     rclpy.shutdown()
 
