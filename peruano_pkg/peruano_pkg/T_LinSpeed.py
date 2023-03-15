@@ -7,7 +7,7 @@ from std_msgs.msg import String
 class MinimalSubscriber(Node):
 
     def _init_(self):
-        super()._init_('CR_T1_SubLinSpeed')
+        super()._init_('T_LinSpeed')
         self.subscription = self.create_subscription(
             String,
             'lineal_speed',
