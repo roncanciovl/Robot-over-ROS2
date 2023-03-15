@@ -26,7 +26,7 @@ class ImagePublisher(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = ImagePublisher()
+    node = ImagePublisher(node_name='penviar')
     rclpy.spin(node)
     rclpy.shutdown()
 
