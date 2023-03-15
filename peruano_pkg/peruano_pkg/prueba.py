@@ -5,9 +5,9 @@ from std_msgs.msg import String
 class MyNode(Node):
 
     def _init_(self):
-        super().__init__('minimal_subscriber')
-        self.publisher_ = self.create_publisher(String, 'my_topic', 10)
-        self.subscription_ = self.create_subscription(String, 'my_topic', self.callback, 10)
+        super().__init__('jackson')
+        self.publisher_ = self.create_publisher(String, 'LinSpeed', 10)
+        self.subscription_ = self.create_subscription(String, 'Rpm', self.callback, 10)
         self.subscription_
 
     def callback(self, msg):
