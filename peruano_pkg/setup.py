@@ -34,7 +34,6 @@ setup(
     entry_points={
         'console_scripts': [
             'talker = peruano_pkg.jack_pub:main',
-            'listener = peruano_pkg.jack_sub:main',
             'rpm = peruano_pkg.T_PubRpm:main',
             'suppub = peruano_pkg.T_PubSub:main',
             'linspeed = peruano_pkg.T_LinSpeed:main',

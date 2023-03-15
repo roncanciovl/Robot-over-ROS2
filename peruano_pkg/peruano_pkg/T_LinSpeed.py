@@ -10,7 +10,7 @@ class MinimalSubscriber(Node):
         super()._init_('minimal_subscriber')
         self.subscription = self.create_subscription(
             String,
-            'LinSpeed',
+            'lineal_speed',
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
