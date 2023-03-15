@@ -51,6 +51,8 @@ setup(
             'P1E = Reyes_Pa.P1_EnvFoto:main',
             'P1R = Reyes_Pa.P1_RecFoto:main',
             'F = Reyes_Pa.P2_EnvFoto:main',
+            'S = Reyes_Pa.T2_Servidor1:main',
+            'C = Reyes_Pa.T2_Cliente1:main',
         ],
         
     },
