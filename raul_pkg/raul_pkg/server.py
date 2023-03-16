@@ -1,27 +1,55 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
-from cv_bridge import CvBridge
-import cv2
+from lolito_interfaces.srv import CaptureImage
 
-class ImageServer(Node):
+
+class ImageCaptureServer(Node):
     def __init__(self):
-        super().__init__('image_server')
-        self.srv = self.create_service(Image, 'image', self.request_callback)
-        self.bridge = CvBridge()
-        self.capture = cv2.VideoCapture(0)
+        super().__init__('image_capture_server')
+        self.srv = self.create_service(CaptureImage, 'capture_image', self.capture_image_callback)
 
-    def request_callback(self, request, response):
-        ret, frame = self.capture.read()
-        response = self.bridge.cv2_to_imgmsg(frame, "bgr8")
+    def capture_image_callback(self, request, response):
+        # Aquí es donde capturamos la imagen y la enviamos como respuesta
+        image = self.capture_image()
+        response.image = image
         return response
+
+    def capture_image(self):
+        # En este ejemplo, utilizamos la biblioteca OpenCV para capturar la imagen
+        import cv2
+
+        # Capturamos la imagen de la cámara web
+        cap = cv2.VideoCapture(0)
+        _, frame = cap.read()
+
+        # Convertimos la imagen capturada a un mensaje ROS
+        msg = Image()
+        msg.header.frame_id = 'camera'
+        msg.encoding = 'bgr8'
+        msg.height, msg.width, _ = frame.shape
+        msg.step = 3 * msg.width
+        msg.data = frame.tobytes()
+
+        # Liberamos la cámara web
+        cap.release()
+
+        return msg
+
 
 def main(args=None):
     rclpy.init(args=args)
-    image_server = ImageServer()
-    rclpy.spin(image_server)
-    image_server.destroy_node()
+
+    node = ImageCaptureServer()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+
+    node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
