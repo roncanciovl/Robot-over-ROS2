@@ -22,8 +22,9 @@ setup(
         'console_scripts': [
                 'talker = ivan_pkg.my_pub:main',
                 'listener = ivan_pkg.my_sub:main',
-                'rpm = ivan_pkg.rpm:main',
-                'my_node = ivan_pkg.my_node:main',
+                'RPM = ivan_pkg.rpm_publisher:main',
+                'my_node = ivan_pkg.lineal_speed:main',
+                'image = ivan_pkg.client:main',
                 
         ],
 },
