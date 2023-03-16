@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from example_interfaces.srv import Foto
+from lolito_interfaces.srv import Foto
 
 import cv2
 

@@ -18,6 +18,10 @@
   <exec_depend>sensor_msgs</exec_depend>
   <build_depend>OpenCV</build_depend>
   <exec_depend>OpenCV</exec_depend>
+
+  <build_depend>lolito_interfaces</build_depend>
+  <exec_depend>lolito_interfaces</exec_depend>
+  
   
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
