@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(lolito)
+project(lolito_interfaces)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -17,26 +17,18 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(ament_cmake_python REQUIRED)
-find_package(rclpy REQUIRED)
-find_package(std-_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
-ament_python_install_package(scripts)
-
-install(PROGRAMS
-  scripts/publisher_member_function.py
-  DESTINATION lib/${PROJECT_NAME}
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/CaptureImage.srv"
+  DEPENDENCIES sensor_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
 )
-
-install(PROGRAMS
-  scripts/subscriber_member_function.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+
+ament_export_dependencies(rosidl_default_runtime)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
