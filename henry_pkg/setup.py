@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'talker = henry_pkg.my_pub:main',
+            'imageServer = henry_pkg.server:main',
         ],
     },
 )
