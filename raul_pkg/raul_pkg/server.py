@@ -11,9 +11,12 @@ class ImageCaptureServer(Node):
 
     def capture_image_callback(self, request, response):
         # Aquí es donde capturamos la imagen y la enviamos como respuesta
-        image = self.capture_image()
-        response.image = image
-        return response
+        if (request.req == True):
+               image = self.capture_image()
+               response.image = image
+               return response
+
+     
 
     def capture_image(self):
         # En este ejemplo, utilizamos la biblioteca OpenCV para capturar la imagen
