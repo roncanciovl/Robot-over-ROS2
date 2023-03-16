@@ -27,6 +27,7 @@ setup(
                 'listener = willy_pkg.subscriber_member_function:main',
                 'lineal_speed = willy_pkg.lineal_speed:main',
                 'jh = willy_pkg.subscriber_photo:main',
+                'photo = willy_pkg.foto_cliente:main',
         ],
 },
 )
