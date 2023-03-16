@@ -55,7 +55,25 @@ sudo rosdep init
 rosdep update
 ```
 
-5. Open VSCode, got to the menu and select file, an then select open folder. This show our workspace in the VScode explorer
+5. Open VSCode, got to the menu and select file, an then select open folder and select our workspace in home. This show our workspace in the VScode explorer
+
+6. In a terminal go to your workspace 
+
+```shell script
+colcon build
+```
+
+7. Sourve the overlay according to your distro
+
+```shell script
+source /opt/ros/foxy/setup.bash
+```
+8.
+
+```shell script
+. install/local_setup.bash
+```
+
 
 
 
