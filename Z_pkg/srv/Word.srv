@@ -1,0 +1,7 @@
+# request
+---
+string word_to_send # Palabra a enviar
+
+# response
+---
+string word_received # Palabra recibida
