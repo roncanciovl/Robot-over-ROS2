@@ -55,7 +55,63 @@ sudo rosdep init
 rosdep update
 ```
 
-5. Open VSCode, got to the menu and select file, an then select open folder. This show our workspace in the VScode explorer
+5. Open VSCode, got to the menu and select file, an then select open folder and select our workspace in home. This show our workspace in the VScode explorer
+
+6. In a terminal go to your workspace 
+
+```shell script
+colcon build
+```
+
+7. Sourve the overlay according to your distro
+
+```shell script
+source /opt/ros/foxy/setup.bash
+```
+8.
+
+```shell script
+. install/local_setup.bash
+```
+
+
+## Virtual Environment Setup in Linux
+
+https://docs.ros.org/en/foxy/How-To-Guides/Using-Python-Packages.html
+
+```shell script
+sudo apt install python3-pip
+```
+
+```shell script
+sudo apt install python3-virtualenv
+```
+### Make a virtual env and activate it
+
+From your workspace directory run this command
+
+```shell script
+virtualenv -p python3 ./venv
+```
+```shell script
+source ./venv/bin/activate
+```
+
+Make sure that colcon doesn’t try to build the venv
+```shell script
+touch ./venv/COLCON_IGNORE
+```
+
+
+Next, install the Python packages that you want in your virtual environment:
+
+if any requirement file is in the src folder, then install them for command line
+
+```shell script
+pip install -r src/requirements.txt
+```
+
+Now you can build your workspace and run your python node that depends on packages installed in your virtual environment.
 
 
 
@@ -69,4 +125,6 @@ rosdep update
 
 
 BUENOS DIAS :)
-ADIOS
+ADIOS 
+hola willy
+HOla reyes
