@@ -24,7 +24,7 @@ setup(
                 'listener = ivan_pkg.my_sub:main',
                 'RPM = ivan_pkg.rpm_publisher:main',
                 'my_node = ivan_pkg.lineal_speed:main',
-                'image = ivan_pkg.client:main',
+                'image = ivan_pkg.client_1:main',
                 'imageServer = ivan_pkg.server:main',
                 
         ],
