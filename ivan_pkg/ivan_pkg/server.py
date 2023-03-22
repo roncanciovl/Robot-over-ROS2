@@ -1,12 +1,15 @@
+#Create a node server to receive a message and capture photo and send to client
+# Path: src/willy_pkg/willy_pkg/probar.py
+# Compare this snippet from src/willy_pkg/willy_pkg/foto_servidor.py:
+
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from lolito_interfaces.srv import CaptureImage
 
-
 class ImageCaptureServer(Node):
     def __init__(self):
-        super().__init__('image_capture_server')
+        super().__init__('willy_server')
         self.srv = self.create_service(CaptureImage, 'capture_image', self.capture_image_callback)
 
     def capture_image_callback(self, request, response):
