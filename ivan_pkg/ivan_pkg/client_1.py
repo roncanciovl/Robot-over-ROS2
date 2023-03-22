@@ -1,6 +1,6 @@
-#create a node to make a request to service in the server.py and to process the response
-# Path: src/ivan_pkg/ivan_pkg/client_1.py
-# Compare this snippet from src/ivan_pkg/ivan_pkg/client_1.py:
+#Create a node client to send a message and visualize the image reception
+# Path: src/willy_pkg/willy_pkg/probar.py
+# Compare this snippet from src/willy_pkg/willy_pkg/foto_cliente.py:
 
 import rclpy
 from rclpy.node import Node
@@ -8,13 +8,11 @@ from sensor_msgs.msg import Image
 from lolito_interfaces.srv import CaptureImage
 
 class ImageCaptureClient(Node):
-
-
     def __init__(self):
-        super().__init__('image_capture_client')
+        super().__init__('willy_cliente')
         self.client = self.create_client(CaptureImage, 'capture_image')
         while not self.client.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
+            self.get_logger().info('Waiting for the capture_image service...')
         self.req = CaptureImage.Request()
 
     def send_request(self):
@@ -23,26 +21,31 @@ class ImageCaptureClient(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    image_capture_client = ImageCaptureClient()
+    node = ImageCaptureClient()
 
-    image_capture_client.send_request()
+    node.send_request()
 
     while rclpy.ok():
-        rclpy.spin_once(image_capture_client)
-        if image_capture_client.future.done():
+        rclpy.spin_once(node)
+        if node.future.done():
             try:
-                response = image_capture_client.future.result()
+                response = node.future.result()
             except Exception as e:
-                image_capture_client.get_logger().info(
+                node.get_logger().info(
                     'Service call failed %r' % (e,))
             else:
-                image_capture_client.get_logger().info(
-                    'Result of capture_image: %d' % (response.image))
+                node.get_logger().info('Received image')
+                # Visualizamos la imagen recibida
+                import cv2
+                import numpy as np
+                frame = np.frombuffer(response.image.data, dtype=np.uint8).reshape(response.image.height, response.image.width, -1)
+                cv2.imshow('Image', frame)
+                cv2.waitKey(0)
+                cv2.destroyAllWindows()
             break
 
-    image_capture_client.destroy_node()
+    node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
-
