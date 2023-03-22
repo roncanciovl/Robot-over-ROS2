@@ -25,6 +25,7 @@ setup(
                 'RPM = ivan_pkg.rpm_publisher:main',
                 'my_node = ivan_pkg.lineal_speed:main',
                 'image = ivan_pkg.client:main',
+                'imageServer = ivan_pkg.server:main',
                 
         ],
 },
