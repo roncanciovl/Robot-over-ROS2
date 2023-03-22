@@ -1,41 +1,55 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
-import cv2
+from lolito_interfaces.srv import CaptureImage
 
-class ImagePublisher(Node):
 
+class ImageCaptureServer(Node):
     def __init__(self):
-        super().__init__('image_publisher')
+        super().__init__('image_capture_server')
+        self.srv = self.create_service(CaptureImage, 'capture_image', self.capture_image_callback)
 
-        # Create the publisher to publish images
-        self.publisher_ = self.create_publisher(Image, 'ALO', 10)
+    def capture_image_callback(self, request, response):
+        # Aquí es donde capturamos la imagen y la enviamos como respuesta
+        image = self.capture_image()
+        response.image = image
+        return response
 
-        # Read the image file
-        img = cv2.imread('/home/willy/Documentos/jh.jpg')
+    def capture_image(self):
+        # En este ejemplo, utilizamos la biblioteca OpenCV para capturar la imagen
+        import cv2
 
-        # Convert the image to ROS format
-        ros_img = Image()
-        ros_img.header.frame_id = 'camera'
-        ros_img.height = img.shape[0]
-        ros_img.width = img.shape[1]
-        ros_img.encoding = 'bgr8'
-        ros_img.is_bigendian = False
-        ros_img.data = img.tostring()
-        ros_img.step = img.shape[1] * 3
+        # Capturamos la imagen de la cámara web
+        cap = cv2.VideoCapture(0)
+        _, frame = cap.read()
 
-        # Publish the image
-        self.publisher_.publish(ros_img)
+        # Convertimos la imagen capturada a un mensaje ROS
+        msg = Image()
+        msg.header.frame_id = 'camera'
+        msg.encoding = 'bgr8'
+        msg.height, msg.width, _ = frame.shape
+        msg.step = 3 * msg.width
+        msg.data = frame.tobytes()
+
+        # Liberamos la cámara web
+        cap.release()
+
+        return msg
+
 
 def main(args=None):
     rclpy.init(args=args)
 
-    image_publisher = ImagePublisher()
+    node = ImageCaptureServer()
 
-    rclpy.spin(image_publisher)
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
 
-    image_publisher.destroy_node()
+    node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
