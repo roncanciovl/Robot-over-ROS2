@@ -8,7 +8,7 @@ from cv_bridge import CvBridge
 class ImagePublisher(Node):
 
     def _init_(self):
-        super()._init_('image_publisher')
+        super()._init_('chamito')
         self.publisher_ = self.create_publisher(Image, 'ALO', 10)
         self.timer_ = self.create_timer(0.1, self.publish_image)
         self.bridge_ = CvBridge()
