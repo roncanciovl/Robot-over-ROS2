@@ -26,8 +26,8 @@ setup(
                 'talker = willy_pkg.publisher_member_function:main',
                 'listener = willy_pkg.subscriber_member_function:main',
                 'lineal_speed = willy_pkg.lineal_speed:main',
-                'jh = willy_pkg.subscriber_photo:main',
-                'photo = willy_pkg.foto_cliente:main',
+                'client = willy_pkg.Client_photo:main',
+                'server = willy_pkg.Server_photo:main'
         ],
 },
 )
