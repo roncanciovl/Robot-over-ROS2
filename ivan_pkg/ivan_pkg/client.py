@@ -3,7 +3,7 @@ from rclpy.action import ActionClient
 from rclpy.node import Node
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
-from my_robot_interfaces.action import CaptureImage
+from lolito_interfaces.srv import CaptureImage
 import cv2 
 
 class ImageActionClient(Node):
