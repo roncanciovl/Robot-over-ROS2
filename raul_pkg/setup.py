@@ -27,8 +27,7 @@ setup(
                 'listener = raul_pkg.sub_raul:main',
                 'rpm2ls = raul_pkg.rpm2ls:main',
                 'rpmpub = raul_pkg.pub_rpm:main',
-                'server = raul_pkg.server:main',
-                'client = raul_pkg.client:main'
+                'server = raul_pkg.server:main'
         ],
     },
 )
