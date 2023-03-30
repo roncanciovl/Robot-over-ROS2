@@ -1,27 +1,55 @@
 import rclpy
 from rclpy.node import Node
-from lolito_interfaces.srv import Foto
+from sensor_msgs.msg import Image
+from lolito_interfaces.srv import CaptureImage
 
-import cv2
 
-class ImageServer(Node):
-
+class ImageCaptureServer(Node):
     def __init__(self):
-        super().__init__('image_server')
-        self.srv = self.create_service(Foto, 'image_service', self.image_callback)
+        super().__init__('image_capture_server')
+        self.srv = self.create_service(CaptureImage, 'capture_image', self.capture_image_callback)
 
-    def image_callback(self, request, response):
-        img1 = cv2.imread('/home/z3rn291/poderoso/src/Reyes_Pa/Reyes_Pa/JACHAS.jpg')
-        img2 = cv2.imread('/home/z3rn291/poderoso/src/Reyes_Pa/Reyes_Pa/MELOO.jpg')
-        response.foto1 = self.bridge.cv2_to_imgmsg(img1, encoding="passthrough")
-        response.foto2 = self.bridge.cv2_to_imgmsg(img2, encoding="passthrough")
+    def capture_image_callback(self, request, response):
+        # Aquí es donde capturamos la imagen y la enviamos como respuesta
+        image = self.capture_image()
+        response.my_image = image
         return response
+
+    def capture_image(self):
+        # En este ejemplo, utilizamos la biblioteca OpenCV para capturar la imagen
+        import cv2
+
+        # Capturamos la imagen de la cámara web
+        cap = cv2.VideoCapture(0)
+        _, frame = cap.read()
+
+        # Convertimos la imagen capturada a un mensaje ROS
+        msg = Image()
+        msg.header.frame_id = 'camera'
+        msg.encoding = 'bgr8'
+        msg.height, msg.width, _ = frame.shape
+        msg.step = 3 * msg.width
+        msg.data = frame.tobytes()
+
+        # Liberamos la cámara web
+        cap.release()
+
+        return msg
+
 
 def main(args=None):
     rclpy.init(args=args)
-    server = ImageServer()
-    rclpy.spin(server)
+
+    node = ImageCaptureServer()
+
+    try:
+        rclpy.spin(node)
+    except KeyboardInterrupt:
+        pass
+
+    node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()
