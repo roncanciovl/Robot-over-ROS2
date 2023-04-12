@@ -1,5 +1,10 @@
 from setuptools import setup
 
+import os
+from glob import glob
+from setuptools import setup
+from setuptools import find_packages
+
 package_name = 'modelo_robot'
 
 setup(
@@ -10,6 +15,15 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        #COLOQUE NUEVO 
+        #('share/' + package_name, package_files),
+        #('share/' + package_name + '/launch', package_files),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*.py')),
+        #######nuevo_robot
+        (os.path.join('share', package_name, 'urdf'), glob('urdf/*')),
+        (os.path.join('share', package_name, 'meshes'), glob('meshes/*')),
+        (os.path.join('share', package_name, 'worlds'), glob('worlds/*')),
+
     ],
     install_requires=['setuptools'],
     zip_safe=True,
