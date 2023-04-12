@@ -1,6 +1,6 @@
 # request
 ---
-bool req # Path de la imagen a enviar
+string path # Path de la imagen a enviar
 
 # response
 ---
