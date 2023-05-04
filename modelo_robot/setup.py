@@ -34,6 +34,11 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'F = modelo_robot.Perras:main',
+            'L = modelo_robot.P_reci:main',
+
+
+
         ],
     },
 )
