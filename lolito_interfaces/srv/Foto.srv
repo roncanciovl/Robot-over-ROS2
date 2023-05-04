@@ -1,0 +1,8 @@
+# request
+---
+string path # Path de la imagen a enviar
+
+# response
+---
+sensor_msgs/Image image # Imagen en formato sensor_msgs/Image
+sensor_msgs/Image image1 # Imagen en formato sensor_msgs/Image
