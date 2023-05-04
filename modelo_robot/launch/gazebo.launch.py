@@ -12,6 +12,9 @@ from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch.actions import RegisterEventHandler
 from launch.event_handlers import OnProcessExit
+
+<node pkg="cuadrado_robot" type="cuadrado_robot_node.py" name="cuadrado_robot_node" output="screen"/>
+
   
 def generate_launch_description():
  
