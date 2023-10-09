@@ -1,5 +1,4 @@
-
-#!/home/roncanciovl/ros2class_ws/venv/bin/python3
+#!usr/bin/env python 3
 
 import rclpy
 from rclpy.node import Node
@@ -18,7 +17,7 @@ class MinimalPublisher(Node):
 
     def timer_callback(self):
         msg = String()
-        msg.data = 'Hello World: %d' % self.i
+        msg.data = 'Hola blesssssssss %d' % self.i
         self.publisher_.publish(msg)
         self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1
